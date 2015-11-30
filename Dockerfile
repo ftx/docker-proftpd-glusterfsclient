@@ -30,7 +30,7 @@ RUN apt-get update && \
     apt-get install -y python-software-properties software-properties-common
 RUN add-apt-repository -y ppa:gluster/glusterfs-3.7 && \
     apt-get update && \
-    apt-get install -y proftpd glusterfs-client 
+    apt-get install -y proftpd glusterfs-client supervisor 
 
 
 WORKDIR /ftp
@@ -39,5 +39,6 @@ RUN mkdir -p /usr/local/bin
 ADD ./bin /usr/local/bin
 RUN chmod +x /usr/local/bin/*.sh
 ADD ./etc/proftpd.conf /etc/proftpd/proftpd.conf
+ADD ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["/usr/local/bin/run.sh"]

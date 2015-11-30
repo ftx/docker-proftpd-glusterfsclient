@@ -67,7 +67,9 @@ fi
 adduser --quiet --disabled-password -shell /bin/false --home /ftp --gecos "FTP" ${FTP_LOGIN}
 echo "${FTP_LOGIN}:${FTP_PASSWD}" | chpasswd
 
-echo "OK"
+
+
 
 fi
 
+/usr/bin/supervisord
